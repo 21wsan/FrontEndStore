@@ -1,0 +1,219 @@
+:root {
+    --primario: #9C27B0;
+    --primarioOscuro: #89119D;
+    --secundario: #FFCE00;
+    --secundarioOscuro: rgb(233, 287, 2);
+    --blanco: #FFFF;
+    --negro: #0000;
+
+    --fuente-principal: 'Staatliches', cursive;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/* Globales*/
+body {
+    background-color: var(--primario);
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+/* Parrafos*/
+p {
+    font-size: 1.8;/*1.4rem*/
+    /*en el video 1.8*/
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+}
+
+/* Enlaces - linea en los enlaces*/
+a {
+    text-decoration: none;
+}
+
+/* Imagenes */
+img {
+    max-width: 100%;/* en el video 100%*/
+}
+
+.contenedor {
+    max-width: 120rem;
+    /*120rem en el video*/
+    margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+    color: var(--secundario);
+    font-family: var(--fuente-principal);
+}
+
+h1 {
+    font-size: 3.2rem;
+    /*4rem en el video*/
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+h3 {
+    font-size: 2.4rem;
+}
+
+/* header */
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.header__logo {
+    /*imagen de logo*/
+    margin: 3rem 0rem;
+    /*3rem separacion de logo parte superior*/
+}
+
+/* Footer*/
+.footer {
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.footer__texto {
+    text-align: center;
+    font-family: var(--fuente-principal);
+    font-size: 1.7rem;
+    /*2.2rem en el video*/
+}
+
+/* Navegación*/
+.navegacion {
+    background-color: var(--primarioOscuro);
+    /*barrita morada oscura de navegacion (TIENDA - NOSOTROS)*/
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    /* Separacion forma nueva*/
+}
+
+.navegacion__enlace {
+    /*sintaxis de BEM*/
+    font-family: var(--fuente-principal);
+    color: var(--blanco);
+    font-size: 2.5rem;
+    /*tamaño de la fuente (TIENDA - NOSOTROS), en el video esta como 3 rem*/
+    /*margin-right: 2rem;  --  Separacion (TIENDA - NOSOTROS)*/
+}
+
+/* para resaltar color amarillo en los titulos de navegacion (TIENDA - NOSOTROS)*/
+.navegacion__enlace--activo,
+.navegacion__enlace:hover {
+    color: var(--secundario);
+}
+
+/* Grid */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);/* ubicar columnas donde van las camisas*/
+    gap: 2rem;/* Separacion entre columnas, camisetas*/
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);/* ubicar columnas donde van las camisas*/
+    }
+}
+
+.producto {
+    background-color: var(--primarioOscuro);
+    padding: 1rem;
+}
+
+.producto__imagen {
+    width: 100%;/* para que las imagenes de las camisetas tomen todo el tamaño del cuadro morado*/
+}
+
+.producto__informacion {}
+
+.producto__nombre {
+    font-size: 4rem;
+}
+
+.producto__precio {
+    font-size: 2.8rem;
+    color: var(--secundario);
+}
+
+.producto__nombre,
+.producto__precio{
+    font-family: var(--fuente-principal);
+    margin: 1rem;/*reduce la margen de arriba en el nombre de las camisas (ANGULAR)*/
+    text-align: center;/*centra en nombre de las camisetas*/
+    line-height: 1.2;
+}
+
+/* Graficos*/
+
+.grafico{
+    min-height: 30rem;
+    background-repeat: no-repeat;/*para que no se repita la imagen*/
+    background-size: cover;/*para que la imagen llene todo el espacio disponible*/
+    grid-column: 1 / 3;
+}
+
+.grafico--camisas{
+    grid-row: 2 /3 ;
+    background-image: url(../img/grafico1.jpg);
+}
+
+.grafico--node{
+    background-image: url(../img/grafico2.jpg);
+    grid-row: 8 / 9;
+}
+
+@media (min-width: 768px){
+    .grafico--node{
+        grid-row: 5 / 6;
+        grid-column: 2 / 4;
+    }    
+}
+
+.nosotros{
+    display: grid;/*para separar por areas*/
+    grid-template-rows: repeat(2, auto);/*2 filas de una fraccion*/
+}
+
+@media (min-width: 768px){
+    .nosotros{
+        grid-template-columns: repeat(2, 1fr);/*dividir en 2 area, para el texto e imagen*/
+        column-gap: 2rem;
+    }    
+}
+
+.nosotros__contenido{
+
+}
+
+.nosotros__imagen{
+    grid-row: 1 / 2;/*posicionar imagen*/
+}
+
+@media (min-width: 768px){
+    .nosotros__imagen{
+        grid-column: 2 / 3;/*posiciona la imagen a la iz*/
+    }
+}
